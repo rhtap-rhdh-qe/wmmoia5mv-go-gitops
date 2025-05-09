@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: wmmoia5mv-go
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: wmmoia5mv-go 
+  name: wmmoia5mv-go
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: wmmoia5mv-go
+    weight: 100 
